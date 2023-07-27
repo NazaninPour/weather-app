@@ -16,13 +16,22 @@ function App() {
   }
 
   function realtemp(respond) {
-    // let liveCity = respond.data.sys.name;
     let livetemp = Math.round(respond.data.main.temp);
-    // let livehumidity = Math.round(respond.data.main.humidity);
-    // let livePrecip = Math.round(respond.data.main.precipprob);
-    //let livewind = Math.round(respond.data.main.windspeed);
-    // let livecondition = respond.data.main.conditions;
-    console.log(livetemp);
+    let livehumidity = Math.round(respond.data.main.humidity);
+    let livePrecip = Math.round(respond.data.main.precipprob);
+    let livewind = Math.round(respond.data.main.windspeed);
+    let livecondition = respond.data.main.conditions;
+    console.log(respond);
+    let hum = document.querySelector("#hum");
+    hum.innerHTML = `${livehumidity}%`;
+    let prec = document.querySelector("#prec");
+    prec.innerHTML = `${livePrecip}%`;
+    let win = document.querySelector("#win");
+    win.innerHTML = `${livewind} km/h`;
+    let livedes = document.querySelector("#livedec");
+    livedes.innerHTML = `${livecondition}`;
+    let ltemp = document.querySelector(".num");
+    ltemp.innerHTML = livetemp;
   }
 
   return (
@@ -96,6 +105,11 @@ function App() {
           </div>
         </div>
         <div className="forcast" id="forcast"></div>
+      </div>
+      <div className="text-center">
+        <small>
+          <a href="https://github.com/NazaninPour/weather-app">github</a>
+        </small>
       </div>
     </div>
   );
