@@ -16,11 +16,12 @@ function App() {
   }
 
   function realtemp(respond) {
+    let livePrecip = Math.round(respond.data.clouds.all);
     let livetemp = Math.round(respond.data.main.temp);
     let livehumidity = Math.round(respond.data.main.humidity);
-    let livePrecip = Math.round(respond.data.main.precipprob);
-    let livewind = Math.round(respond.data.main.windspeed);
-    let livecondition = respond.data.main.conditions;
+
+    let livewind = Math.round(respond.data.wind.speed);
+    let livecondition = respond.data.weather[0].description;
     console.log(respond);
     let hum = document.querySelector("#hum");
     hum.innerHTML = `${livehumidity}%`;
