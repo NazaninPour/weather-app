@@ -1,13 +1,86 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: arial, sans-serif;
+}
+.place {
+  font-size: 14px;
+  line-height: 22px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.sign {
+  display: inline-block;
+  max-width: 60px;
+  margin-top: unset;
+  vertical-align: top;
+}
+.futuresign {
+  display: inline-block;
+  max-width: 60px;
+  height: 40px;
+
+  margin-bottom: 0%;
+  vertical-align: top;
+}
+.degree {
+  color: #202124;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+
+  vertical-align: top;
+}
+.data {
+  display: inline-block;
+  color: #70757a;
+  font-size: 12px;
+  line-height: 16px;
+  padding-left: 9px;
+}
+li {
+  list-style-type: none;
+}
+.num {
+  font-size: 48px;
+  font-weight: 400;
+  display: inline;
+  vertical-align: top;
+
+  line-height: 1;
+}
+.extra {
+  color: #222425;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: right;
+  vertical-align: top;
+}
+h5 {
+  text-align: center;
+  color: rgb(32, 33, 36);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.futuresign {
+  display: block;
+  margin: 0px auto;
+}
+
+.highlow {
+  text-align: center;
+}
+.card {
+  margin-top: 25px;
+}
+#citytitle {
+  font-size: 22px;
+  margin-top: 10px;
+}
+.app {
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #2224;
+  width: 600px;
+  border-radius: 5px;
+  margin-top: 20px;
+  max-width: 100%;
 }
