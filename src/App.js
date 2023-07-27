@@ -1,43 +1,67 @@
 import "./App.css";
 import axios from "axios";
+import React, { useState } from "react";
 
 function App() {
+  let [city, setCity] = useState("London");
+
+  function submitHandle(event) {
+    event.preventDefault();
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8d9838178b5b401f1b4e7cb5af18e210&units=metric`;
+    axios.get(url).then(realtemp);
+  }
+  function submitData(event) {
+    event.preventDefault();
+    setCity(event.target.value);
+  }
+
+  function realtemp(respond) {
+    // let liveCity = respond.data.sys.name;
+    let livetemp = Math.round(respond.data.main.temp);
+    // let livehumidity = Math.round(respond.data.main.humidity);
+    // let livePrecip = Math.round(respond.data.main.precipprob);
+    //let livewind = Math.round(respond.data.main.windspeed);
+    // let livecondition = respond.data.main.conditions;
+    console.log(livetemp);
+  }
+
   return (
-    <div class="container">
-      <div class="app">
-        <div class="row">
-          <div class="col-6">
-            <form class="form" id="addon-wrapping">
+    <div className="container">
+      <div className="app">
+        <div className="row">
+          <div className="col-6">
+            <form className="form" id="addon-wrapping" onSubmit={submitHandle}>
               <input
                 type="search"
-                class="form-control"
-                placeholder="City"
+                className="form-control"
+                placeholder="Enter a City"
                 aria-label="City"
                 aria-describedby="addon-wrapping"
+                onChange={submitData}
               />
             </form>
           </div>
-          <span class="col-3">
-            <form>
-              <input type="submit" class="btn btn-primary" value="Search" />
+          <span className="col-3">
+            <form onSubmit={submitHandle}>
+              <input type="submit" className="btn btn-primary" value="Search" />
             </form>
           </span>
         </div>
 
-        <h1 id="citytitle">New York</h1>
+        <h1 id="citytitle">{city}</h1>
         <br />
 
-        <div class="row">
-          <div class="col-6">
+        <div className="row">
+          <div className="col-6">
             <img
-              class="sign"
+              className="sign"
               id="signicon"
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt="wheatersign"
             />
             <span>
-              <h2 class="num">29</h2>
-              <h2 class="degree">
+              <h2 className="num">19</h2>
+              <h2 className="degree">
                 <a href="/" id="frn">
                   °F|
                 </a>
@@ -46,7 +70,7 @@ function App() {
                 </a>
               </h2>
             </span>
-            <ul class="data">
+            <ul className="data">
               <li>
                 Precipitation:
                 <span id="prec">20%</span>
@@ -61,8 +85,8 @@ function App() {
               </li>
             </ul>
           </div>
-          <div class="col-6">
-            <ul class="extra">
+          <div className="col-6">
+            <ul className="extra">
               <li>
                 <strong>Weather</strong>
               </li>
@@ -71,7 +95,7 @@ function App() {
             </ul>
           </div>
         </div>
-        <div class="forcast" id="forcast"></div>
+        <div className="forcast" id="forcast"></div>
       </div>
     </div>
   );
